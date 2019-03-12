@@ -1,0 +1,687 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <style>
+
+  h1 { font-family: "Source Sans Pro", Helvetica, Arial, serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: "Source Sans Pro", Helvetica, Arial, serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+  p { font-family: "Source Sans Pro", Helvetica, Arial, serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: "Source Sans Pro", Helvetica, Arial, serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+  pre { font-family: "Source Sans Pro", Helvetica, Arial, serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+  h5.fonte {
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  #myDiv.fullscreen{
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  #myDiv{background:#cc0000; width:500px; height:400px;}
+  h5.fontemaior{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #000000;
+  }
+  h6.fontao {
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  h6.fontemenor{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 12px;
+    color: #8a8991;
+  }
+  p.fonteazul{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    color: #7abdff;
+  }
+  ul.ex1 {
+    margin-top: 70px;
+    padding-left: 0px;
+    border-bottom: 1px solid #7abdff;
+    padding-bottom: 15px;
+  }
+  li a:hover{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    text-decoration: none;
+    color: white;
+  }
+  li a{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    color: #7abdff;
+  }
+  h5.fontebranca{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    color: #FFFFFF;
+  }
+  ul.ex1 li{
+    padding-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 2px solid transparent;
+  }
+  ul.ex1 li:hover{
+    border-left: 2px solid white;
+  }
+  li{
+    list-style-type: none;
+  }
+
+  i.ico {
+    margin-right: 5px;
+  }
+  div.margem{
+    padding: 15px 120px 15px 120px;
+  }
+  body{
+    background-color: #2e78f1;
+  }
+  h6.fontinha{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 12px;
+  }
+  h5.fontecinza{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    color: #8a8991;
+  }
+  h5.fontemtmenor{
+    font-family: "Source Sans Pro", Helvetica, Arial, serif;
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Logo e botoes -->
+  <div class="container-fluid margem">
+    <div class="row justify-content-between">
+      <div class="col col-md-2">
+        <nav>
+          <a href="#"><img src="Capturar.PNG" height="38" /></a>
+        </nav>
+      </div>
+      <div class="col col-md-2 pl-2">
+        <div class="float-right">
+          <button type="button" id="btnHour" class="btn btn-default rounded-circle">H</i>
+          </button>
+          <button type="button" id="btnDay" class="btn btn-default rounded-circle">D</i>
+          </button>
+          <button type="button" id="btnWeek" class="btn btn-default rounded-circle">W</i>
+          </button>
+          <button type="button" id="btnMonth" class="btn btn-default rounded-circle">M</i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <div class="row pt-4">
+      <!-- sidebar -->
+      <div class="col-2">
+        <ul class="ex1">
+          <li>
+            <a href="#"><i class="fas fa-th-large ico"></i>Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-columns ico"></i>Operations</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-box-open ico"></i>Maintenance</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-users ico"></i>Users</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-10">
+        <h5 class="fontebranca">Key metrics</h5>
+        <p class="fonteazul">
+          Get a bird's eye view of Kiwi's deliveries and main activity.
+        </p>
+
+        <!-- Cards -->
+        <div class="row">
+          <div class="col col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <h6 class="fontinha" id="tx_orders">2.66%<i class="fas fa-arrow-up"></i></h6>
+                </div>
+                <div class="float-left">
+                  <h5 class="card-title fonte" id="qtd_orders">254</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Orders delivered</h6>
+                  <p class="card-text period">Most recent week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <h6 class="fontinha" id="tx_minutes">2.66%<i class="fas fa-arrow-up"></i></h6>
+                </div>
+                <div class="float-left">
+                  <h5 class="card-title fonte" id="media_minutes">254</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Avg. delivery time</h6>
+                  <p class="card-text period">Most recent week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <h6 class="fontinha" id="tx_rating">2.66%<i class="fas fa-arrow-up"></i></h6>
+                </div>
+                <div class="float-left">
+                  <h5 class="card-title fonte" id="media_rating">254</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Avg. rating <i class="fas fa-star"></i></h6>
+                  <p class="card-text period">Most recent week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="float-right">
+                  <h6 class="fontinha" id="tx_avaliados">2.66%<i class="fas fa-arrow-up"></i></h6>
+                </div>
+                <div class="float-left">
+                  <h5 class="card-title fonte" id="qtd_avaliados">254</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Rated orders</h6>
+                  <p class="card-text period">Most recent week</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-4">
+          <!-- Row inferior com timeline e mapa -->
+
+          <div class="row">
+            <!-- Timeline -->
+            <div class="col col-md-8">
+              <h5 class="fontebranca">Delivery time overview</h5>
+              <p class="fonteazul">
+                Get a bird's eyes view of delivery time.
+              </p>
+              <div class="card">
+                <div class="card-body">
+                  <div class="row pl-3 pr-3 justify-content-between">
+
+                    <h5 id="timelinetext" class="fontecinza">Timeline analysis (10 Feb - 17 Feb)</h5>
+
+
+                    <div>
+                      <button id="bback" class="btn setinha"><i class="fas fa-angle-left"></i></button>
+                      <button id="bforw" class="btn setinha" disabled><i class="fas fa-angle-right"></i></button>
+                    </div>
+
+
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col col-md-12">
+                      <div class="progress" style="height:40px">
+                        <div id="courrier1" class="progress-bar" role="progressbar"              style="width: 55%;background-color:#44b79d" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><h5 class="fontemtmenor">Preparing meal</h5></div>
+                        <div id="meal1" class="progress-bar bg-warning" role="progressbar"              style="width: 15%;background-color:#f49c0e" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><h5 class="fontemtmenor">Courrier waiting</h5></div>
+                        <div id="loading1" class="progress-bar bg-secondary" role="progressbar" style="width: 15%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><h5 class="fontemtmenor">Loading bot</h5></div>
+                        <div id="transit1" class="progress-bar bg-dark" role="progressbar"      style="width: 10%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><h5 class="fontemtmenor">Bot on the way</h5></div> <!--Loading Bot-->
+                        <div id="client1" class="progress-bar" role="progressbar"              style="width: 5%;background-color:#d141f0" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><h5 class="fontemtmenor">Waiting client</h5></div><!--Waiting-->
+                      </div>
+                      <div class="progress mt-2" style="height:75px">
+                        <div id="courrier2" class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <h5 id="courrier3" class="text-center fontemaior">2.98%</h5>
+                          <h6 id="courrier4" class="text-center fontemenor">Teste</h6>
+                        </div>
+                        <div id="meal2" class="progress-bar bg-white" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <h5 id="meal3" class="text-center fontemaior">2.98%</h5>
+                          <h6 id="meal4" class="text-center fontemenor">Teste</h6>
+                        </div>
+                        <div id="loading2" class="progress-bar bg-white" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <h5 id="loading3" class="text-center fontemaior">2.98%</h5>
+                          <h6 id="loading4" class="text-center fontemenor">Teste</h6>
+                        </div>
+                        <div id="transit2" class="progress-bar bg-white" role="progressbar" style="width: 10%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <h5 id="transit3" class="text-center fontemaior">2.98%</h5>
+                          <h6 id="transit4" class="text-center fontemenor">Teste</h6>
+                        </div>
+                        <div id="client2" class="progress-bar bg-white" role="progressbar" style="width: 5%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <h5 id="client3" class="text-center fontemaior">2.91%</h5>
+                          <h6 id="client4" class="text-center fontemenor">Teste</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mapa -->
+            <div class="col col-md-4">
+              <h5 class="fontebranca">Delivered orders heatmap</h5>
+              <p class="fonteazul">
+                Get a bird's eyes view of orders location.
+              </p>
+              <div class="card">
+                <div class="card-body">
+                  <div class="row justify-content-center">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <label id="option1" class="btn btn-secondary active">
+                        <input type="radio" name="options"  autocomplete="off" checked> Orders
+                      </label>
+                      <label id="option2" class="btn btn-secondary">
+                        <input type="radio" name="options"  autocomplete="off"> Restaurants
+                      </label>
+                    </div>
+                    <!-- Button trigger modal -->
+
+                  </div>
+                  <div id="map">
+                    <iframe width="100%" height="35%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black"></iframe>
+                    <br/><small><a href="https://www.openstreetmap.org/#map=14/-15.5962/-56.0755">View Larger Map</a></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="map1">
+        <iframe width="100%" height="35%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black"></iframe>
+        <br/><small><a href="https://www.openstreetmap.org/#map=14/-15.5962/-56.0755">View Larger Map</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <!-- Modal -->
+
+
+
+  </div>
+
+
+  <script src="heatmap.js-master/build/heatmap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+  <script src="Mheatmap.js"></script>
+
+  <script>
+  var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  });
+  var map = L.map('map', {doubleClickZoom: false})
+  .setView([
+    37.86858956906187,
+    -122.26177310956702],
+    13);
+    CartoDB_Positron.addTo(map);
+
+    var points = [];
+    var heat = L.heatLayer(points, {
+      maxZoom: 0.3,
+      radius : 5
+    })
+    .addTo(map);
+
+</script>
+  <script>
+    var horario_maior = 1551749234206; //maior
+    var horario_menor = 1546457059015;
+    var intervalo_hora = 3600000;
+    var intervalo_dia = 86400000;
+    var intervalo_semana = 518400000;
+    var intervalo_mes = 2592000000;
+
+    var clique = 0;
+    var recebido;
+    var atual;
+    var hmds = 2;
+    $(document).ready(function() {
+      $.ajax({
+        url : "http://kiwibotinho.herokuapp.com/",
+        type : 'POST'
+      })
+      .done(function(msg){
+        $(".leaflet-control-zoom").html($(".leaflet-control-zoom").html() + '<a class="leaflet-control-zoom-full" href="#exampleModal" data-toggle="modal" title="Expand">⛶</a>');
+        recebido = JSON.parse(msg);
+
+        atualizarDados('W')
+        document.getElementById("btnWeek").setAttribute("style", "color : #2e78f1 ");
+
+
+        $(".leaflet-control-zoom-full").click(function(){
+          console.log("FULL")
+        })
+
+      })
+      .fail(function(jqXHR, textStatus, msg){
+        console.log("Falha berg")
+      });
+    });
+
+    var order = 1;
+
+    function atualizarDados(periodo){
+
+      let frase;
+      if(periodo == 'H'){
+        hmds = 0;
+        frase = "Most recent hour";
+      }
+      else if(periodo == 'D'){
+        hmds = 1;
+        frase = "Most recent day";
+      }
+      else if(periodo == 'W'){
+        hmds = 2;
+        frase = "Most recent week";
+      }
+      else if(periodo == 'M'){
+        hmds = 3;
+        frase = "Most recent month";
+      }
+
+      if(clique == 0){
+        atualizarCard1(hmds, recebido[hmds][clique].porcentagem_rendimento, recebido[hmds][clique].qtd);
+        atualizarCard2(hmds, recebido[hmds][clique].media_minutos, recebido[hmds][clique].minutos_rendimento);
+        atualizarCard3(hmds, recebido[hmds][clique].media_rating, recebido[hmds][clique].rating_rendimento);
+        atualizarCard4(hmds, recebido[hmds][clique].tx_avaliacoes, recebido[hmds][clique].tx_rendimento);
+      }
+
+      atualizarTimeline(hmds, recebido[hmds][clique].tx_courrier_on_the_way, recebido[hmds][clique].tx_waiting_for_meal, recebido[hmds][clique].tx_loading_bot, recebido[hmds][clique].tx_bot_in_transit, recebido[hmds][clique].tx_waiting_for_client);
+      atualizarLimites(recebido[hmds][clique].courrier_min,recebido[hmds][clique].courrier_max,recebido[hmds][clique].meal_min,recebido[hmds][clique].meal_max,recebido[hmds][clique].loading_min,recebido[hmds][clique].loading_max,recebido[hmds][clique].transit_min,recebido[hmds][clique].transit_max,recebido[hmds][clique].client_min, recebido[hmds][clique].client_max);
+      atualizarTimelineText(hmds, clique,frase)
+      if(order == 1)
+      preencherHeatMapClientes(recebido[hmds][clique].latitudes_client, recebido[hmds][clique].longitudes_client)
+      else {
+        preencherHeatMapClientes(recebido[hmds][clique].latitudes_restaurant, recebido[hmds][clique].longitudes_restaurant)
+      }
+
+      $(".period").text(frase);
+
+    }
+
+    function atualizarCard1(indice, porcentagem, quantidade){
+      let seta = setaUpDown(porcentagem);
+
+      document.getElementById("tx_orders").innerHTML = porcentagem + '%' + seta;
+      document.getElementById("qtd_orders").innerText = quantidade;
+
+      if(porcentagem > 0)
+      document.getElementById("tx_orders").setAttribute("style","color: #48c85f");
+      else {
+        document.getElementById("tx_orders").setAttribute("style","color: #fc6060");
+      }
+
+    }
+    function atualizarCard2(indice, media, porcentagem){
+      let minutes = new Date(media).getUTCMinutes();
+      let hours = new Date(media).getUTCHours();
+      let seta = setaUpDown(porcentagem);
+
+      if(hours > 0)
+      minutes += 60 * hours
+
+      if(porcentagem <= 0)
+      document.getElementById("tx_minutes").setAttribute("style","color: #48c85f");
+      else {
+        document.getElementById("tx_minutes").setAttribute("style","color: #fc6060");
+      }
+
+      document.getElementById("media_minutes").innerText = minutes + ' min';
+      document.getElementById("tx_minutes").innerHTML = porcentagem + '%' + seta;
+    }
+    function atualizarCard3(indice, media, porcentagem){
+      let seta = setaUpDown(porcentagem);
+
+      document.getElementById("tx_rating").innerHTML = porcentagem + '%' + seta;
+      document.getElementById("media_rating").innerText = media;
+
+      if(porcentagem > 0)
+      document.getElementById("tx_rating").setAttribute("style","color: #48c85f");
+      else {
+        document.getElementById("tx_rating").setAttribute("style","color: #fc6060");
+      }
+    }
+    function atualizarCard4(indice, porcentagem, rendimento){
+      let seta = setaUpDown(rendimento);
+
+      document.getElementById("qtd_avaliados").innerText = porcentagem + '%';
+      document.getElementById("tx_avaliados").innerHTML = rendimento + '%' + seta;
+
+      if(rendimento > 0)
+      document.getElementById("tx_avaliados").setAttribute("style","color: #48c85f");
+      else {
+        document.getElementById("tx_avaliados").setAttribute("style","color: #fc6060");
+      }
+    }
+    function atualizarTimeline(indice, courrier, meal, loading, transit, client){
+      document.getElementById("courrier1").setAttribute("style","width:" + courrier + '%' + ';background-color:#44b79d');
+      document.getElementById("meal1").setAttribute("style","width:" + meal + '%' + ';background-color:#f49c0e');
+      document.getElementById("loading1").setAttribute("style","width:" + loading + '%' + ';background-color:#3896e2');
+      document.getElementById("transit1").setAttribute("style","width:" + transit + '%' + ';background-color:#344860');
+      document.getElementById("client1").setAttribute("style","width:" + client + '%' + ';background-color:#d141f0');
+
+      document.getElementById("courrier2").setAttribute("style","width:" + courrier + '%');
+      document.getElementById("meal2").setAttribute("style","width:" + meal + '%');
+      document.getElementById("loading2").setAttribute("style","width:" + loading + '%');
+      document.getElementById("transit2").setAttribute("style","width:" + transit + '%');
+      document.getElementById("client2").setAttribute("style","width:" + client + '%');
+
+      document.getElementById("courrier3").innerText = courrier + '%'
+      document.getElementById("meal3").innerText = meal + '%'
+      document.getElementById("loading3").innerText = loading + '%'
+      document.getElementById("transit3").innerText = transit + '%'
+      document.getElementById("client3").innerText = client + '%'
+
+
+
+
+    }
+    function atualizarLimites(cmin, cmax, mmin, mmax, lmin, lmax, tmin, tmax, clmin, clmax){
+      document.getElementById("courrier4").innerText = cmin + '-' + cmax + 'min'
+      document.getElementById("meal4").innerText = mmin + '-' + mmax + 'min'
+      document.getElementById("loading4").innerText = lmin + '-' + lmax + 'min'
+      document.getElementById("transit4").innerText = tmin + '-' + tmax + 'min'
+      document.getElementById("client4").innerText = clmin + '-' + clmax + 'min'
+
+    }
+    function atualizarTimelineText(indice, click, frase){
+      let h5 = document.getElementById("timelinetext");
+      let options = { month: 'short', year: '2-digit' };
+      let monthNames = ["Jan", "Feb", "Mar", "Apr", "May","Jun","Jul", "Aug", "Sep", "Oct", "Nov","Dec"];
+
+      if(indice == 1){
+        let dateinferior = horario_maior - intervalo_dia*(click+1)
+        let datesuperior = horario_maior - intervalo_dia*click
+
+        if(dateinferior < horario_menor)
+        dateinferior = horario_menor;
+
+        let date_i = new Date(dateinferior);
+        let date_s = new Date(datesuperior);
+
+
+        h5.innerText = "Timeline analysis " + '(' + (date_i.getDate()) + ' ' + monthNames[date_i.getMonth()] + ' - ' + (date_s.getDate()) +' '+monthNames[date_s.getMonth()] + ')';
+      }
+      else if(indice == 2){
+
+        let dateinferior = horario_maior - intervalo_semana*(click+1)
+        let datesuperior = horario_maior - intervalo_semana*click
+
+        if(dateinferior < horario_menor)
+        dateinferior = horario_menor;
+
+        let date_i = new Date(dateinferior);
+        let date_s = new Date(datesuperior);
+
+
+        h5.innerText = "Timeline analysis " + '(' + (date_i.getDate()) + ' ' + monthNames[date_i.getMonth()] + ' - ' + (date_s.getDate()) +' '+monthNames[date_s.getMonth()] + ')';
+      }else if(indice == 3){
+        let dateinferior = horario_maior - intervalo_mes*(click+1)
+        let datesuperior = horario_maior - intervalo_mes*click
+
+        if(dateinferior < horario_menor)
+        dateinferior = horario_menor;
+
+        let date_i = new Date(dateinferior);
+        let date_s = new Date(datesuperior);
+
+
+        h5.innerText = "Timeline analysis " + '(' + (date_i.getDate()) + ' ' + monthNames[date_i.getMonth()] + ' - ' + (date_s.getDate()) +' '+monthNames[date_s.getMonth()] + ')';
+      }
+      else if(indice == 0){
+        let dateinferior = horario_maior - intervalo_hora*(click+1)
+        let datesuperior = horario_maior - intervalo_hora*click
+
+        if(dateinferior < horario_menor)
+        dateinferior = horario_menor;
+
+        let date_i = new Date(dateinferior);
+        let date_s = new Date(datesuperior);
+        h5.innerText = "Timeline analysis " + '(' + (date_i.getDate()) + ' ' + monthNames[date_i.getMonth()] + ' - ' + (date_s.getDate()) +' '+monthNames[date_s.getMonth()] + ')';
+      }
+
+
+
+    }
+
+    function preencherHeatMapClientes(clat, clng){
+      for(let i = 0; i < clat.length; i++){
+        heat.addLatLng([clat[i]*1, clng[i]*1]);
+      }
+    }
+
+    function setaUpDown(a){
+      let arrowup = '<i class="fas fa-arrow-up"></i>';
+      let arrowdown = '<i class="fas fa-arrow-down"></i>';
+      if(a < 0)
+      return arrowdown;
+      return arrowup;
+    }
+    function setaDownUp(a){
+      let arrowup = '<i class="fas fa-arrow-up"></i>';
+      let arrowdown = '<i class="fas fa-arrow-down"></i>';
+      if(a > 0)
+      return arrowdown;
+      return arrowup;
+    }
+
+    function cleanMap(){
+      map.removeLayer(heat);
+      heat = L.heatLayer([], {
+        maxZoom: 0.3,
+        radius : 5
+      })
+      .addTo(map);
+    }
+
+    $("#bback").click(function(){
+      cleanMap();
+      $("#bforw").removeAttr("disabled");
+
+      if(clique < recebido[hmds].length - 1){
+        clique += 1;
+
+        atualizarDados(atual)
+        if(clique == recebido[hmds].length - 1){
+          $(this).attr("disabled", "disabled");
+        }
+      }
+
+
+    })
+
+    $("#bforw").click(function(){
+      cleanMap();
+      $("#bback").removeAttr("disabled");
+
+      if(clique - 1 >= 0){
+        clique -= 1;
+        atualizarDados(atual);
+        $(this).removeAttr("disabled");
+        if(clique == 0){
+          $(this).attr("disabled", "disabled");
+        }
+      }
+
+    })
+
+    $(".rounded-circle").click(function(){
+      $(".rounded-circle").css("color", "black");
+      $(this).css("color", " #2e78f1");
+      valor = $(this).text();
+      valor = valor[0]
+
+      if(valor != atual){
+
+        cleanMap();
+
+        clique = 0;
+        $("#bback").removeAttr("disabled");
+        $("#bforw").attr("disabled","disabled");
+
+        if(valor == 'H'){
+          $("#bback").attr("disabled","disabled");
+          $("#bforw").attr("disabled","disabled");
+        }
+
+
+      }
+
+      atual = valor;
+
+      atualizarDados(atual);
+
+
+    });
+
+    $("#option1").click(function(){
+      order = 1;
+      cleanMap();
+      preencherHeatMapClientes(recebido[hmds][clique].latitudes_client, recebido[hmds][clique].longitudes_client);
+    });
+    $("#option2").click(function(){
+      order = 0;
+      cleanMap();
+      preencherHeatMapClientes(recebido[hmds][clique].latitudes_restaurant, recebido[hmds][clique].longitudes_restaurant);
+    });
+
+    </script>
+
+
+
+  </body>
+  </html>
