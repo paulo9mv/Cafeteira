@@ -308,16 +308,7 @@
         </div>
       </div>
       <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div id="map1">
-        <iframe width="100%" height="35%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style="border: 1px solid black"></iframe>
-        <br/><small><a href="https://www.openstreetmap.org/#map=14/-15.5962/-56.0755">View Larger Map</a></small>
-      </div>
-    </div>
-  </div>
-</div>
+
     </div>
     <!-- Modal -->
 
@@ -374,16 +365,16 @@
         type : 'POST'
       })
       .done(function(msg){
-        $(".leaflet-control-zoom").html($(".leaflet-control-zoom").html() + '<a class="leaflet-control-zoom-full" href="#exampleModal" data-toggle="modal" title="Expand">⛶</a>');
+        //$(".leaflet-control-zoom").html($(".leaflet-control-zoom").html() + '<a class="leaflet-control-zoom-full" href="#exampleModal" data-toggle="modal" title="Expand">⛶</a>');
         recebido = JSON.parse(msg);
 
         atualizarDados('W')
         document.getElementById("btnWeek").setAttribute("style", "color : #2e78f1 ");
 
 
-        $(".leaflet-control-zoom-full").click(function(){
-          console.log("FULL")
-        })
+        //$(".leaflet-control-zoom-full").click(function(){
+      //    console.log("FULL")
+      //  })
 
       })
       .fail(function(jqXHR, textStatus, msg){
